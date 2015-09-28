@@ -21,6 +21,7 @@ import com.fasterxml.jackson.databind.JsonNode
 class DEFAULTS {
     static String PAGERDUTY_URL = "https://events.pagerduty.com/generic/2010-04-15/create_event.json"
     static String SUBJECT_LINE='${job.status} [${job.project}] \"${job.name}\" run by ${job.user} (#${job.execid})'
+    static String SERVICE_KEY=''
 }
 
 /**
@@ -96,7 +97,7 @@ rundeckPlugin(NotificationPlugin){
     configuration{
         subject title:"Subject", description:"Incident subject line. Can contain \${job.status}, \${job.project}, \${job.name}, \${job.group}, \${job.user}, \${job.execid}", defaultValue:DEFAULTS.SUBJECT_LINE,required:true
 
-        service_key title:"Service API Key", description:"The service key", scope:"Project"
+        service_key title:"Service API Key", description:"The service key", defaultValue:DEFAULTS.SERVICE_KEY, required:true
     }
     onstart { Map executionData,Map configuration ->
         triggerEvent(executionData, configuration)
