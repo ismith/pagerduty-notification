@@ -7,7 +7,7 @@ import com.fasterxml.jackson.databind.JsonNode
 // See http://rundeck.org/docs/developer/notification-plugin-development.html
 
 // curl -H "Content-type: application/json" -X POST \
-//    -d '{    
+//    -d '{
 //      "service_key": "ee59049e89dd45f28ce35467a08577cb",
 //      "event_type": "trigger",
 //      "description": "FAILURE for production/HTTP on machine srv01.acme.com",
